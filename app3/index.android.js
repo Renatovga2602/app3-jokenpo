@@ -101,8 +101,11 @@ class app3 extends Component {
         <View style={styles.palco}>
 
           <Text style={styles.txtResultado}>{this.state.resultado}</Text>
-          <Text>Escolha do Computador: {this.state.escolhaCompuador}</Text>
-          <Text>Escolha do Usuário: {this.state.escolhaUsuario}</Text>
+
+          <Icone escolha={this.state.escolhaCompuador} jogador= 'Computador'></Icone>
+          <Icone escolha={this.state.escolhaUsuario} jogador= 'Usuário'></Icone>
+
+
 
         </View>
 
@@ -124,6 +127,44 @@ class Topo extends Component {
     );
   }
 }
+
+class Icone extends Component {
+  render() {
+
+    if (this.props.escolha == 'pedra') {
+
+      return (
+        <View>
+          <Text>{this.props.jogador}</Text>
+          <Image source={require('./imgs/pedra.png')} />
+        </View>
+      );
+
+    } else if (this.props.escolha == 'papel') {
+
+      return (
+        <View>
+          <Text>{this.props.jogador}</Text>
+          <Image source={require('./imgs/papel.png')} />
+        </View>
+      );
+
+    } else if (this.props.escolha == 'tesoura') {
+
+      return (
+        <View>
+          <Text>{this.props.jogador}</Text>
+          <Image source={require('./imgs/tesoura.png')} />
+        </View>
+      );
+
+    } else {
+      return false;
+    }
+
+  }
+}
+
 const styles = StyleSheet.create({
   btnEscolha: {
     width: 90,
