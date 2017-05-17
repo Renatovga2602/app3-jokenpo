@@ -1,5 +1,3 @@
-
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -15,11 +13,23 @@ class app3 extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { escolhaUsuario: '' }
+    this.state = { escolhaUsuario: '', escolhaCompuador: '' }
 
   }
   jokenpo(escolhaUsuario) {
-    this.setState({ escolhaUsuario: escolhaUsuario });
+
+    //gerar num aleatório
+
+    const numAleatorio = Math.floor(Math.random() * 3);
+
+
+    this.setState({
+      escolhaUsuario: escolhaUsuario,
+      escolhaCompuador: numAleatorio
+    });
+
+
+
   }
 
 
@@ -27,7 +37,7 @@ class app3 extends Component {
   render() {
     return (
       <View>
-        <Text>Escolha do Computador</Text>
+        <Text>Escolha do Computador: {this.state.escolhaCompuador}</Text>
         <Text>Escolha do Usuário: {this.state.escolhaUsuario}</Text>
         <Text>Resultado</Text>
         <Button title='pedra' onPress={() => { this.jokenpo('pedra') }} />
