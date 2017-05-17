@@ -20,16 +20,22 @@ class app3 extends Component {
 
     //gerar num aleatório
 
-    const numAleatorio = Math.floor(Math.random() * 3);
+    var numAleatorio = Math.floor(Math.random() * 3);
+    var escolhaCompuador = '';
 
+    switch (numAleatorio) {
+      case 0: escolhaCompuador = 'pedra';
+        break;
+      case 1: escolhaCompuador = 'papel';
+        break;
+      case 2: escolhaCompuador = 'tesoura';
+        break;
+    }
 
     this.setState({
       escolhaUsuario: escolhaUsuario,
-      escolhaCompuador: numAleatorio
+      escolhaCompuador: escolhaCompuador
     });
-
-
-
   }
 
 
