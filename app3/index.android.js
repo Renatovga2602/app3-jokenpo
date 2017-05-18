@@ -39,10 +39,10 @@ class app3 extends Component {
         resultado = 'Empate';
       }
       if (escolhaUsuario == 'papel') {
-        resultado = 'Usuário ganhou';
+        resultado = 'Você ganhou';
       }
       if (escolhaUsuario == 'tesoura') {
-        resultado = 'Computador ganhou'
+        resultado = 'Você perdeu'
       }
     }//escolha para papel
     if (escolhaCompuador == 'papel') {
@@ -50,10 +50,10 @@ class app3 extends Component {
         resultado = 'Empate';
       }
       if (escolhaUsuario == 'tesoura') {
-        resultado = 'Usuário ganhou';
+        resultado = 'Você ganhou';
       }
       if (escolhaUsuario == 'pedra') {
-        resultado = 'Computador ganhou';
+        resultado = 'Você perdeu';
       }
     }//escolha para tesoura
     if (escolhaCompuador == 'tesoura') {
@@ -61,10 +61,10 @@ class app3 extends Component {
         resultado = 'Empate';
       }
       if (escolhaUsuario == 'pedra') {
-        resultado = 'Usuário ganhou';
+        resultado = 'Você ganhou';
       }
       if (escolhaUsuario == 'papel') {
-        resultado = 'Computador ganhou';
+        resultado = 'Você perdeu';
       }
     }
 
@@ -103,7 +103,7 @@ class app3 extends Component {
           <Text style={styles.txtResultado}>{this.state.resultado}</Text>
 
           <Icone escolha={this.state.escolhaCompuador} jogador= 'Computador'></Icone>
-          <Icone escolha={this.state.escolhaUsuario} jogador= 'Usuário'></Icone>
+          <Icone escolha={this.state.escolhaUsuario} jogador= 'Você'></Icone>
 
 
 
@@ -134,8 +134,8 @@ class Icone extends Component {
     if (this.props.escolha == 'pedra') {
 
       return (
-        <View>
-          <Text>{this.props.jogador}</Text>
+        <View style={styles.icone}>
+          <Text style={styles.txtJogador}>{this.props.jogador}</Text>
           <Image source={require('./imgs/pedra.png')} />
         </View>
       );
@@ -143,8 +143,8 @@ class Icone extends Component {
     } else if (this.props.escolha == 'papel') {
 
       return (
-        <View>
-          <Text>{this.props.jogador}</Text>
+        <View style={styles.icone}>
+          <Text style={styles.txtJogador}>{this.props.jogador}</Text>
           <Image source={require('./imgs/papel.png')} />
         </View>
       );
@@ -152,8 +152,8 @@ class Icone extends Component {
     } else if (this.props.escolha == 'tesoura') {
 
       return (
-        <View>
-          <Text>{this.props.jogador}</Text>
+        <View style={styles.icone}>
+          <Text style={styles.txtJogador}>{this.props.jogador}</Text>
           <Image source={require('./imgs/tesoura.png')} />
         </View>
       );
@@ -186,6 +186,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'red',
     height: 60
+  },
+  icone:{
+    alignItems: 'center',
+    marginBottom: 20,
+   
+  },
+  txtJogador:{
+    fontSize: 18
   }
 });
 
