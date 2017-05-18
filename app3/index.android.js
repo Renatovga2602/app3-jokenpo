@@ -7,6 +7,8 @@ import {
   Button,
   Image
 } from 'react-native';
+import Topo from './src/components/topo';
+import Icone from './src/components/icone';
 
 
 
@@ -102,8 +104,8 @@ class app3 extends Component {
 
           <Text style={styles.txtResultado}>{this.state.resultado}</Text>
 
-          <Icone escolha={this.state.escolhaCompuador} jogador= 'Computador'></Icone>
-          <Icone escolha={this.state.escolhaUsuario} jogador= 'Você'></Icone>
+          <Icone escolha={this.state.escolhaCompuador} jogador='Computador'></Icone>
+          <Icone escolha={this.state.escolhaUsuario} jogador='Você'></Icone>
 
 
 
@@ -112,56 +114,6 @@ class app3 extends Component {
 
       </View>
     )
-  }
-}
-
-class Topo extends Component {
-  render() {
-    return (
-      <View>
-        <Image source={require('./imgs/jokenpo.png')}
-        // style={{ flex: 1, resizeMode: 'stretch' }}
-        />
-
-      </View>
-    );
-  }
-}
-
-class Icone extends Component {
-  render() {
-
-    if (this.props.escolha == 'pedra') {
-
-      return (
-        <View style={styles.icone}>
-          <Text style={styles.txtJogador}>{this.props.jogador}</Text>
-          <Image source={require('./imgs/pedra.png')} />
-        </View>
-      );
-
-    } else if (this.props.escolha == 'papel') {
-
-      return (
-        <View style={styles.icone}>
-          <Text style={styles.txtJogador}>{this.props.jogador}</Text>
-          <Image source={require('./imgs/papel.png')} />
-        </View>
-      );
-
-    } else if (this.props.escolha == 'tesoura') {
-
-      return (
-        <View style={styles.icone}>
-          <Text style={styles.txtJogador}>{this.props.jogador}</Text>
-          <Image source={require('./imgs/tesoura.png')} />
-        </View>
-      );
-
-    } else {
-      return false;
-    }
-
   }
 }
 
@@ -186,15 +138,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'red',
     height: 60
-  },
-  icone:{
-    alignItems: 'center',
-    marginBottom: 20,
-   
-  },
-  txtJogador:{
-    fontSize: 18
   }
+
 });
 
 AppRegistry.registerComponent('app3', () => app3);
